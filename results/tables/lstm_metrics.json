@@ -1,0 +1,8 @@
+{
+  "pearson_r": 0.2888,
+  "pearson_p": 1.1e-05,
+  "mae": 0.5026,
+  "rmse": 0.6147,
+  "model": "LSTM",
+  "epochs_trained": 16
+}

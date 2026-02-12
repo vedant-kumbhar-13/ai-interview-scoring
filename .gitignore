@@ -1,0 +1,66 @@
+# ===========================
+# Virtual Environments
+# ===========================
+myenv/
+.venv/
+venv/
+env/
+
+# ===========================
+# Python Cache
+# ===========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# ===========================
+# Raw & Processed Data
+# ===========================
+data/raw/
+data/processed/
+training_data/
+testing_data/
+
+# ===========================
+# Trained Models (too large)
+# ===========================
+results/models/
+
+# ===========================
+# Prediction Arrays
+# ===========================
+results/tables/*_predictions.npy
+
+# ===========================
+# Logs
+# ===========================
+logs/
+
+# ===========================
+# Transformer & Model Cache
+# ===========================
+.cache/
+*.h5
+*.pt
+*.pkl
+*.npy
+
+# ===========================
+# OS / IDE
+# ===========================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ===========================
+# Jupyter
+# ===========================
+.ipynb_checkpoints/

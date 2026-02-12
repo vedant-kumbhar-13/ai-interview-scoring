@@ -1,0 +1,14 @@
+{
+  "pearson_r": 0.2271,
+  "pearson_p": 0.000616,
+  "mae": 0.4049,
+  "rmse": 0.5122,
+  "model": "Random Forest",
+  "best_params": {
+    "n_estimators": 300,
+    "min_samples_split": 5,
+    "min_samples_leaf": 4,
+    "max_features": 0.3,
+    "max_depth": null
+  }
+}

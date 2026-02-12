@@ -1,0 +1,8 @@
+{
+  "pearson_r": 0.3522,
+  "pearson_p": 0.0,
+  "mae": 0.554,
+  "rmse": 0.6851,
+  "model": "BERT",
+  "epochs": 3
+}

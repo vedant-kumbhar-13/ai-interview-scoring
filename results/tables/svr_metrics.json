@@ -1,0 +1,13 @@
+{
+  "pearson_r": 0.0466,
+  "pearson_p": 0.487954,
+  "mae": 0.5384,
+  "rmse": 0.6734,
+  "model": "SVR",
+  "best_params": {
+    "kernel": "rbf",
+    "gamma": "scale",
+    "epsilon": "0.5",
+    "C": "1"
+  }
+}

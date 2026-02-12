@@ -1,0 +1,36 @@
+# ============================================================
+# AI Interview Scoring — Python Dependencies
+# ============================================================
+# Install: pip install -r requirements.txt
+# ============================================================
+
+# Core data science
+pandas>=2.0
+numpy>=1.24
+scikit-learn>=1.3
+scipy>=1.11
+joblib>=1.3
+
+# NLP & text processing
+nltk>=3.8
+textstat>=0.7
+
+# Sentence embeddings
+sentence-transformers>=2.2
+
+# Deep learning — TensorFlow (LSTM)
+tensorflow>=2.13
+
+# Deep learning — PyTorch + HuggingFace (BERT)
+torch>=2.0
+transformers>=4.30
+
+# Visualization
+matplotlib>=3.7
+seaborn>=0.12
+
+# Excel file support
+openpyxl>=3.1
+
+# Progress bars
+tqdm>=4.65
