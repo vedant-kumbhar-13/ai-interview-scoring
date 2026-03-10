@@ -237,7 +237,7 @@ If you use this work in your research, please cite:
 ```bibtex
 @misc{kumbhar2026ai_interview_scoring,
   title   = {Evaluating the Reliability of AI-Driven Scoring for Written Interview Responses},
-  author  = {Kumbhar, Vedant and Ingale, Loukik and Krishna, Meeraj},
+  author  = {Kumbhar Vedant and Ingale Loukik and Krishna Meeraj},
   year    = {2026},
   url     = {https://github.com/vedant-kumbhar-13/ai-interview-scoring}
 }
@@ -256,6 +256,7 @@ If you use this work in your research, please cite:
 ### Guided by
 
 **Dr. Suraj R. Nalawade** — Faculty Guide & Research Advisor
+**Asst. Prof. Himgouri O. Tapase** — Project Coordinator & Guide
 
 ---
 
