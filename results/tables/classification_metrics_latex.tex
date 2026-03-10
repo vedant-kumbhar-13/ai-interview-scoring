@@ -1,0 +1,17 @@
+\begin{table}[htbp]
+  \centering
+  \caption{Classification Accuracy Matrix — Model Evaluation}
+  \label{tab:classification_metrics}
+  \begin{tabular}{lcccc}
+    \toprule
+    \textbf{Model} & \textbf{Accuracy} & \textbf{Precision} & \textbf{Recall} & \textbf{F1 Score} \\
+    \midrule
+    Random Forest & \textbf{0.6830} & \textbf{0.6965} & \textbf{0.6830} & \textbf{0.6892} \\
+    SVR & 0.5848 & 0.6626 & 0.5848 & 0.6202 \\
+    Bi-LSTM & 0.6161 & 0.6654 & 0.6161 & 0.6242 \\
+    BERT & 0.4955 & 0.6808 & 0.4955 & 0.5715 \\
+    \bottomrule
+  \end{tabular}
+  \vspace{4pt}
+  \parbox{0.9\linewidth}{\footnotesize\textit{Note:} Continuous regression scores were discretized to integer classes (1--5) via rounding. Precision, Recall, and F1 are weighted averages across all classes. Best values per metric are shown in \textbf{bold}.}
+\end{table}

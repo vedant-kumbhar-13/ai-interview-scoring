@@ -20,6 +20,7 @@ Steps:
     9. LSTM training
     10. BERT training
     11. Model comparison
+    12. Classification accuracy matrix
 
 Author: Research Team
 """
@@ -207,6 +208,12 @@ def step_11_compare():
         generate_report(comparison_df, inter_rater, TABLES_DIR)
 
 
+def step_12_classification_metrics():
+    with _timer("12 — Classification Accuracy Matrix"):
+        from evaluation.classification_metrics import generate_classification_matrix
+        generate_classification_matrix(TABLES_DIR, PROCESSED_DIR)
+
+
 # ── Step registry ─────────────────────────────────────────────────────────
 
 STEPS = {
@@ -221,6 +228,7 @@ STEPS = {
     9:  ("LSTM",                   step_9_lstm),
     10: ("BERT",                   step_10_bert),
     11: ("Model Comparison",       step_11_compare),
+    12: ("Classification Metrics", step_12_classification_metrics),
 }
 
 
@@ -241,7 +249,7 @@ def main():
     datasets = None
     combined = None
 
-    steps_to_run = [args.step] if args.only else range(args.step, 12)
+    steps_to_run = [args.step] if args.only else range(args.step, 13)
 
     for step_num in steps_to_run:
         if step_num not in STEPS:

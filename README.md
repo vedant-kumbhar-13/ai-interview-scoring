@@ -24,6 +24,8 @@ Our findings demonstrate that **BERT achieves the highest correlation with human
 
 ## Key Results
 
+### Regression Metrics
+
 | Model         | Pearson r  |   p-value    |    MAE     |    RMSE    |
 | :------------ | :--------: | :----------: | :--------: | :--------: |
 | Random Forest |   0.2271   |    0.0006    | **0.4049** | **0.5122** |
@@ -32,6 +34,17 @@ Our findings demonstrate that **BERT achieves the highest correlation with human
 | **BERT**      | **0.3522** | **< 0.0001** |   0.5540   |   0.6851   |
 
 **Human Inter-Rater Reliability:** Pearson r = 0.6995 (p < 0.0001, N = 224)
+
+### Classification Accuracy Matrix
+
+> Continuous scores discretized to integer classes (1–5) via rounding; Precision, Recall, and F1 are weighted averages.
+
+| Model             | Accuracy   | Precision  | Recall     | F1 Score   |
+| :---------------- | :--------: | :--------: | :--------: | :--------: |
+| **Random Forest** | **0.6830** | **0.6965** | **0.6830** | **0.6892** |
+| SVR               |   0.5848   |   0.6626   |   0.5848   |   0.6202   |
+| Bi-LSTM           |   0.6161   |   0.6654   |   0.6161   |   0.6242   |
+| BERT              |   0.4955   |   0.6808   |   0.4955   |   0.5715   |
 
 <p align="center">
   <img src="results/figures/model_comparison.png" alt="Model Comparison" width="600"/>
@@ -67,11 +80,12 @@ ai-interview-scoring/
 │   │   └── bert_model.py            # Step 10: BERT fine-tuning for regression
 │   └── evaluation/
 │       ├── __init__.py
-│       └── compare_models.py        # Step 11: Metrics aggregation, charts & report
+│       ├── compare_models.py        # Step 11: Metrics aggregation, charts & report
+│       └── classification_metrics.py # Step 12: Classification accuracy matrix
 │
 ├── results/
 │   ├── figures/                     # Generated visualisations
-│   └── tables/                      # Metrics JSON, comparison CSV, summary report
+│   └── tables/                      # Metrics JSON, comparison CSV, LaTeX tables, summary report
 │
 ├── data/                            # Raw & processed data (gitignored)
 ├── training_data/                   # Source datasets (gitignored)
@@ -107,6 +121,7 @@ ai-interview-scoring/
 
 - **Pearson Correlation Coefficient** — Primary metric (agreement with human scores)
 - **MAE / RMSE** — Error magnitude metrics
+- **Classification Metrics** — Accuracy, Precision, Recall, F1 Score (weighted avg) on discretized score classes
 - **Inter-Rater Reliability** — Human evaluator A vs B correlation as the baseline
 
 ---
@@ -155,7 +170,7 @@ Place your datasets in:
 ### 5. Run the Pipeline
 
 ```bash
-# Full pipeline (all 11 steps)
+# Full pipeline (all 12 steps)
 python run_pipeline.py
 
 # From a specific step
@@ -169,19 +184,20 @@ python run_pipeline.py --step 7 --only
 
 ## Pipeline Steps
 
-| Step | Module              | Description                         | Output                      |
-| :--: | :------------------ | :---------------------------------- | :-------------------------- |
-|  1   | `setup_project.py`  | Create directory structure          | Directories                 |
-|  2   | `load_data.py`      | Load & normalize 3 datasets         | `clean_dataset.csv`         |
-|  3   | `clean_text.py`     | NLP text preprocessing              | `clean_answer` column       |
-|  4   | `features.py`       | Extract 12 linguistic features      | `features.csv`              |
-|  5   | `embeddings.py`     | Generate SBERT embeddings           | `embeddings.npy`            |
-|  6   | `split_data.py`     | Build train/test matrices           | `X_train.npy`, `X_test.npy` |
-|  7   | `random_forest.py`  | Train RF + hyperparameter search    | Model + metrics             |
-|  8   | `svr_model.py`      | Train SVR + hyperparameter search   | Model + metrics             |
-|  9   | `lstm_model.py`     | Train Bi-LSTM with early stopping   | Model + metrics             |
-|  10  | `bert_model.py`     | Fine-tune BERT for regression       | Model + metrics             |
-|  11  | `compare_models.py` | Compare all models, generate charts | Figures + report            |
+| Step | Module                       | Description                                | Output                                  |
+| :--: | :--------------------------- | :----------------------------------------- | :-------------------------------------- |
+|  1   | `setup_project.py`           | Create directory structure                 | Directories                             |
+|  2   | `load_data.py`               | Load & normalize 3 datasets                | `clean_dataset.csv`                     |
+|  3   | `clean_text.py`              | NLP text preprocessing                     | `clean_answer` column                   |
+|  4   | `features.py`                | Extract 12 linguistic features             | `features.csv`                          |
+|  5   | `embeddings.py`              | Generate SBERT embeddings                  | `embeddings.npy`                        |
+|  6   | `split_data.py`              | Build train/test matrices                  | `X_train.npy`, `X_test.npy`             |
+|  7   | `random_forest.py`           | Train RF + hyperparameter search           | Model + metrics                         |
+|  8   | `svr_model.py`               | Train SVR + hyperparameter search          | Model + metrics                         |
+|  9   | `lstm_model.py`              | Train Bi-LSTM with early stopping          | Model + metrics                         |
+|  10  | `bert_model.py`              | Fine-tune BERT for regression              | Model + metrics                         |
+|  11  | `compare_models.py`          | Compare all models, generate charts        | Figures + report                        |
+|  12  | `classification_metrics.py`  | Classification accuracy matrix (F1, etc.)  | CSV + LaTeX table + JSON                |
 
 ---
 
